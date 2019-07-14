@@ -1,6 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addIdea } from '../actions';
+import React, {
+	Component
+} from 'react';
+import {
+	connect
+} from 'react-redux';
+import {
+	addIdea
+} from '../actions';
 
 export class Form extends Component {
 	constructor() {
@@ -13,31 +19,57 @@ export class Form extends Component {
 
 	submitIdea = e => {
 		e.preventDefault();
-		const newIdea = { id: Date.now(), ...this.state };
+		const newIdea = {
+			id: Date.now(),
+			...this.state
+		};
 		this.props.addIdea(newIdea);
-		this.setState({ title: '', description: '' });
+		this.setState({
+			title: '',
+			description: ''
+		});
 	};
 
 	handleChange = e => {
-		const { name, value } = e.target;
+		const {
+			name,
+			value
+		} = e.target;
 		this.setState({
 			[name]: value
 		});
 	};
 
 	render() {
-		return (
-			<form onSubmit={this.submitIdea}>
-				<input type="text" value={this.state.title} name="title" placeholder="title" onChange={this.handleChange} />
-				<input
-					type="text"
-					value={this.state.description}
-					name="description"
-					placeholder="description"
-					onChange={this.handleChange}
-				/>
-				<input type="submit" value="Add Idea" />
-			</form>
+		return ( <
+			form onSubmit = {
+				this.submitIdea
+			} >
+			<
+			input type = "text"
+			value = {
+				this.state.title
+			}
+			name = "title"
+			placeholder = "title"
+			onChange = {
+				this.handleChange
+			}
+			/> <
+			input type = "text"
+			value = {
+				this.state.description
+			}
+			name = "description"
+			placeholder = "description"
+			onChange = {
+				this.handleChange
+			}
+			/> <
+			input type = "submit"
+			value = "Add Idea" / >
+			<
+			/form>
 		);
 	}
 }
@@ -51,7 +83,7 @@ export default connect(null, mapDispatchToProps)(Form);
 //Form has local state and is connected to the store
 //It creates a new idea that is passed to the action creator addIdea
 //The passing of the data happens in mapDispatchToProps. Here is an explaination of how it is done:
-//mapDispatchToProps is a function that is passed as an arguement through the function connect
+//mapDispatchToProps is a function that is passed as an arguement through the function connect which connects a react component to the redux store. This gives it the necessary pieces of data from the store and dispatches actions to the store. Connect is also passed the component class and returns a new component class that wraps the one it was passed.
 //In mapDispatchToProps, dispatch is recieved as a parameter. The entire function returns an object
 //The returned object has a key value pair. The key can be called anything but is conventionally the name of the action creator - addIdea.
 //The value is a function which passes newIdea as a parameter and returns dispatch.
