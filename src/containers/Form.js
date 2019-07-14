@@ -48,19 +48,12 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(null, mapDispatchToProps)(Form);
 
-/*
-
-const e = {
-  preventDefault: () => {},
-  target: {
-    myFunc: name => `Hello, ${name}`,
-    name: 'name',
-    value: 'value'
-  }
-}
-
-  addIdea: function(newIdea) {
-    return dispatch(addIdea(newIdea))
-  }
-
-*/
+//Form has local state and is connected to the store
+//It creates a new idea that is passed to the action creator addIdea
+//The passing of the data happens in mapDispatchToProps. Here is an explaination of how it is done:
+//mapDispatchToProps is a function that is passed as an arguement through the function connect
+//In mapDispatchToProps, dispatch is recieved as a parameter. The entire function returns an object
+//The returned object has a key value pair. The key can be called anything but is conventionally the name of the action creator - addIdea.
+//The value is a function which passes newIdea as a parameter and returns dispatch.
+//dispatch takes in a parameter of the action creator addIdea which is alsp a function with a parameter of the newIdea/passed in data
+//This is all mapped to dispatch so the action can do it's thing and send the data to the store.

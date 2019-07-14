@@ -17,3 +17,6 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(Card);
+
+//Card uses pieces of state and can access them via props given to each component in container ***
+//Card also uses an action creator deleteIdea thus needing to mapDispatchToProps - see explaination of mapDispatchToProps in Form.js

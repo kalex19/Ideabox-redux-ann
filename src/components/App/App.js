@@ -14,5 +14,5 @@ function App(){
 
 export default App;
 
-//App is a container or smart component as it needs to know about the store
+//App is a dumb component as it does not need to know about the store
 //The components are created and rendered from App, already connected to store
