@@ -3,15 +3,12 @@ import './App.css';
 import Form from '../../containers/Form';
 import Container from '../../components/Container';
 
-function App() {
-	return ( <
-		div className = "App" >
-		<
-		h1 > Ideabox < /h1> <Form / >
-		<
-		Container / >
-		<
-		/div>
+function App (){
+	return (
+		<div className="App">
+			<h1> Ideabox </h1> <Form />
+			<Container />
+		</div>
 	);
 }
 

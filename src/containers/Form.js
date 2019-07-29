@@ -1,15 +1,9 @@
-import React, {
-	Component
-} from 'react';
-import {
-	connect
-} from 'react-redux';
-import {
-	addIdea
-} from '../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addIdea } from '../actions';
 
 export class Form extends Component {
-	constructor() {
+	constructor () {
 		super();
 		this.state = {
 			title: '',
@@ -31,50 +25,30 @@ export class Form extends Component {
 	};
 
 	handleChange = e => {
-		const {
-			name,
-			value
-		} = e.target;
+		const { name, value } = e.target;
 		this.setState({
 			[name]: value
 		});
 	};
 
-	render() {
-		return ( <
-			form onSubmit = {
-				this.submitIdea
-			} >
-			<
-			input type = "text"
-			value = {
-				this.state.title
-			}
-			name = "title"
-			placeholder = "title"
-			onChange = {
-				this.handleChange
-			}
-			/> <
-			input type = "text"
-			value = {
-				this.state.description
-			}
-			name = "description"
-			placeholder = "description"
-			onChange = {
-				this.handleChange
-			}
-			/> <
-			input type = "submit"
-			value = "Add Idea" / >
-			<
-			/form>
+	render () {
+		return (
+			<form onSubmit={this.submitIdea}>
+				<input type="text" value={this.state.title} name="title" placeholder="title" onChange={this.handleChange} />
+				<input
+					type="text"
+					value={this.state.description}
+					name="description"
+					placeholder="description"
+					onChange={this.handleChange}
+				/>
+				<input type="submit" value="Add Idea" />
+			</form>
 		);
 	}
 }
 
-const mapDispatchToProps = dispatch => ({
+ export const mapDispatchToProps = dispatch => ({
 	addIdea: newIdea => dispatch(addIdea(newIdea))
 });
 
