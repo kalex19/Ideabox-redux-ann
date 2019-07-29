@@ -6,7 +6,7 @@ const Container = props => {
 	return <div>{props.ideas.map(idea => <Card key={idea.id} {...idea} />)}</div>;
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
 	ideas: state.ideas
 });
 
